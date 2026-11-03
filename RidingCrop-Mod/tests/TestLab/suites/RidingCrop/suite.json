@@ -1,0 +1,76 @@
+{
+  "name": "RidingCrop",
+  "description": "RidingCrop: the seven crops (stats, recipes, skill, bleed), the sounds, KY hub settings tab, switches (KydlCore D-084)",
+  "requireMods": [
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "minVersion": "2.0.0"
+    },
+    {
+      "guid": "com.kydldev.KydlCore",
+      "minVersion": "0.1.0"
+    }
+  ],
+  "configOverrides": [
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "General",
+      "key": "EnableAll",
+      "value": "true"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "Crops",
+      "key": "Enable",
+      "value": "true"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "Sound",
+      "key": "Enable",
+      "value": "true"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "Sound",
+      "key": "WhooshVolume",
+      "value": "1"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "Sound",
+      "key": "SlapVolume",
+      "value": "1"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "Sound",
+      "key": "ReplaceVanillaSounds",
+      "value": "true"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "Sound",
+      "key": "SlapNormalize",
+      "value": "true"
+    },
+    {
+      "guid": "com.kydldev.RidingCrop",
+      "section": "DebugLog",
+      "key": "Enable",
+      "value": "true"
+    }
+  ],
+  "resetBetweenTests": true,
+  "tests": [
+    "selftest",
+    "hub-page",
+    "feature-toggle",
+    "all-7-crops",
+    "skills",
+    "damage-ladder",
+    "recipes-stations",
+    "give-and-equip",
+    "craft-a-crop"
+  ]
+}

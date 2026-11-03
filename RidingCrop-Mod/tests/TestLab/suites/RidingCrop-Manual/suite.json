@@ -1,0 +1,12 @@
+{
+  "name": "RidingCrop-Manual",
+  "description": "What needs a person (spec 8.13): looks, real key presses, sound and feel. Skipped in unattended runs - an automated PASS never covers these.",
+  "include": [
+    "../RidingCrop/suite.json"
+  ],
+  "resetBetweenTests": true,
+  "tests": [
+    "hub-look",
+    "swing-feel"
+  ]
+}

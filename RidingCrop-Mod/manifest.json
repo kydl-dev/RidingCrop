@@ -1,0 +1,11 @@
+{
+  "name": "RidingCrop",
+  "version_number": "2.0.0",
+  "website_url": "",
+  "description": "Adds a family of seven craftable one-handed Riding Crops that make enemies bleed (custom models, own skill).",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2351",
+    "ValheimModding-Jotunn-2.30.2",
+    "KydlDev-KydlCore-0.1.0"
+  ]
+}

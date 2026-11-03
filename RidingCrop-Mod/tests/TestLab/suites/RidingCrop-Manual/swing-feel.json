@@ -1,0 +1,44 @@
+{
+  "name": "swing-feel",
+  "description": "Looks and sound of a crop in the hand: model, grip, whoosh, slap, bleed",
+  "manualOnly": true,
+  "timeout": 600,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "give",
+      "prefab": "RidingCrop_V5",
+      "count": 1,
+      "equip": true
+    },
+    {
+      "do": "spawn",
+      "prefab": "Boar",
+      "dz": 6,
+      "as": "Boar"
+    },
+    {
+      "do": "checkpoint",
+      "message": "Is the crop held by the handle, pointing forward, with its own texture (not a club)? Is the inventory icon a tilted crop?"
+    },
+    {
+      "do": "checkpoint",
+      "message": "Swing at the boar. Do you hear a whoosh on the swing and ONE slap on the hit, loud and instant?"
+    },
+    {
+      "do": "checkpoint",
+      "message": "Does the boar bleed (red ticks) for about five seconds after a hit, and not stack on a second hit?"
+    }
+  ],
+  "asserts": [
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

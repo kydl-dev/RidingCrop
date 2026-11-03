@@ -1,0 +1,150 @@
+{
+  "name": "all-7-crops",
+  "description": "All seven crops exist, have a recipe, are blunt-only with a bleed and max quality 4",
+  "timeout": 60,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.crops",
+      "expect": 7
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "expect": true,
+      "label": "RidingCrop recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "expect": 4,
+      "label": "RidingCrop max quality"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "expect": true,
+      "label": "RidingCrop_V1 recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "expect": 4,
+      "label": "RidingCrop_V1 max quality"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "expect": true,
+      "label": "RidingCrop_V3 recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "expect": 4,
+      "label": "RidingCrop_V3 max quality"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop_V4"
+      },
+      "expect": true,
+      "label": "RidingCrop_V4 recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop_V4"
+      },
+      "expect": 4,
+      "label": "RidingCrop_V4 max quality"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "expect": true,
+      "label": "RidingCrop_V6 recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "expect": 4,
+      "label": "RidingCrop_V6 max quality"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "expect": true,
+      "label": "RidingCrop_V2 recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "expect": 4,
+      "label": "RidingCrop_V2 max quality"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.hasRecipe",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "expect": true,
+      "label": "RidingCrop_V5 recipe"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.maxQuality",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "expect": 4,
+      "label": "RidingCrop_V5 max quality"
+    }
+  ],
+  "asserts": [
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

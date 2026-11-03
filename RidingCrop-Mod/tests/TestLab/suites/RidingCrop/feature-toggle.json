@@ -1,0 +1,214 @@
+{
+  "name": "feature-toggle",
+  "description": "EnableAll off stops both features; each Enable switch stops only its own feature; on starts them again. The settings tab stays. The crop items themselves stay until the next game start (items, skill and sounds are added at startup).",
+  "timeout": 90,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.featureRunning",
+      "args": {
+        "id": "crops"
+      },
+      "expect": true,
+      "label": "crops running at start"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.featureRunning",
+      "args": {
+        "id": "sounds"
+      },
+      "expect": true,
+      "label": "sounds running at start"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.tabRegistered",
+      "args": {
+        "id": "settings"
+      },
+      "expect": true,
+      "label": "settings tab registered"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.crops",
+      "expect": 7,
+      "label": "seven crops in the ObjectDB"
+    },
+    {
+      "do": "setConfig",
+      "values": {
+        "Crops/Enable": false
+      }
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "crops"
+        },
+        "expect": false
+      },
+      "timeout": 5
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.featureRunning",
+      "args": {
+        "id": "sounds"
+      },
+      "expect": true,
+      "label": "sounds unaffected by Crops/Enable"
+    },
+    {
+      "do": "setConfig",
+      "values": {
+        "Crops/Enable": true
+      }
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "crops"
+        },
+        "expect": true
+      },
+      "timeout": 5
+    },
+    {
+      "do": "setConfig",
+      "values": {
+        "Sound/Enable": false
+      }
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "sounds"
+        },
+        "expect": false
+      },
+      "timeout": 5
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.featureRunning",
+      "args": {
+        "id": "crops"
+      },
+      "expect": true,
+      "label": "crops unaffected by Sound/Enable"
+    },
+    {
+      "do": "setConfig",
+      "values": {
+        "Sound/Enable": true
+      }
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "sounds"
+        },
+        "expect": true
+      },
+      "timeout": 5
+    },
+    {
+      "do": "setConfig",
+      "values": {
+        "General/EnableAll": false
+      }
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "crops"
+        },
+        "expect": false
+      },
+      "timeout": 5
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.featureRunning",
+      "args": {
+        "id": "sounds"
+      },
+      "expect": false,
+      "label": "sounds stopped by EnableAll"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.tabRegistered",
+      "args": {
+        "id": "settings"
+      },
+      "expect": true,
+      "label": "settings tab stays"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.crops",
+      "expect": 7,
+      "label": "items stay until restart"
+    },
+    {
+      "do": "setConfig",
+      "values": {
+        "General/EnableAll": true
+      }
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "crops"
+        },
+        "expect": true
+      },
+      "timeout": 5
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.featureRunning",
+        "args": {
+          "id": "sounds"
+        },
+        "expect": true
+      },
+      "timeout": 5
+    }
+  ],
+  "asserts": [
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

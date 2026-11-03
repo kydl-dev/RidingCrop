@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Unit tests: pure logic, no game running. Logic worth testing lives in classes without Unity / Valheim types; link those files here. -->
+  <PropertyGroup>
+    <AssemblyName>RidingCrop.UnitTests</AssemblyName>
+    <RootNamespace>RidingCrop.Tests.Unit</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\Core\Functions.cs" Link="Mod\Functions.cs" />
+    <Compile Include="..\..\src\Features\Crops\Domain\CropTable.cs" Link="Mod\CropTable.cs" />
+    <Compile Include="..\..\src\Features\Crops\Domain\CropBalance.cs" Link="Mod\CropBalance.cs" />
+    <Compile Include="..\..\src\Features\Sounds\Domain\SoundMath.cs" Link="Mod\SoundMath.cs" />
+  </ItemGroup>
+</Project>

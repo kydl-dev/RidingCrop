@@ -1,0 +1,91 @@
+{
+  "name": "skills",
+  "description": "Every crop trains the RidingCrop skill, not Clubs",
+  "timeout": 60,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop_V1 skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop_V3 skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop_V4"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop_V4 skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop_V6 skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop_V2 skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "notContains": "Clubs",
+      "label": "RidingCrop_V5 skill"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skill",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "notContains": "None",
+      "label": "skill registered"
+    }
+  ],
+  "asserts": [
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

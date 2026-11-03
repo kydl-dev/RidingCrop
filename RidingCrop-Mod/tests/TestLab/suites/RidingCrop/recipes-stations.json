@@ -1,0 +1,83 @@
+{
+  "name": "recipes-stations",
+  "description": "Every crop is made at the station the README names",
+  "timeout": 60,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.station",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "contains": "workbench"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.station",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "contains": "workbench"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.station",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "contains": "forge"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.station",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "contains": "forge"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.station",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "contains": "blackforge"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.station",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "contains": "blackforge"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.cost",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "contains": "LeatherScraps:10"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.cost",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "contains": "MooseHide:10"
+    }
+  ],
+  "asserts": [
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

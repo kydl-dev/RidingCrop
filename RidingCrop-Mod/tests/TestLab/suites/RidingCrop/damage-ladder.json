@@ -1,0 +1,222 @@
+{
+  "name": "damage-ladder",
+  "description": "Blunt grows 40% per tier, bleed 25% per tier, durability +50 per tier (the README table)",
+  "timeout": 90,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "min": 19.98,
+      "max": 20.02,
+      "label": "RidingCrop blunt 20"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "min": 9.98,
+      "max": 10.02,
+      "label": "RidingCrop bleed 10/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "expect": 200,
+      "label": "RidingCrop durability 200"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "min": 27.98,
+      "max": 28.02,
+      "label": "RidingCrop_V1 blunt 28"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "min": 12.48,
+      "max": 12.52,
+      "label": "RidingCrop_V1 bleed 12.5/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop_V1"
+      },
+      "expect": 250,
+      "label": "RidingCrop_V1 durability 250"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "min": 39.18,
+      "max": 39.22,
+      "label": "RidingCrop_V3 blunt 39.2"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "min": 15.61,
+      "max": 15.65,
+      "label": "RidingCrop_V3 bleed 15.63/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop_V3"
+      },
+      "expect": 300,
+      "label": "RidingCrop_V3 durability 300"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop_V4"
+      },
+      "min": 54.86,
+      "max": 54.9,
+      "label": "RidingCrop_V4 blunt 54.88"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop_V4"
+      },
+      "min": 19.51,
+      "max": 19.55,
+      "label": "RidingCrop_V4 bleed 19.53/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop_V4"
+      },
+      "expect": 350,
+      "label": "RidingCrop_V4 durability 350"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "min": 76.81,
+      "max": 76.85,
+      "label": "RidingCrop_V6 blunt 76.83"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "min": 24.39,
+      "max": 24.43,
+      "label": "RidingCrop_V6 bleed 24.41/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop_V6"
+      },
+      "expect": 400,
+      "label": "RidingCrop_V6 durability 400"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "min": 107.54,
+      "max": 107.58,
+      "label": "RidingCrop_V2 blunt 107.56"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "min": 30.5,
+      "max": 30.54,
+      "label": "RidingCrop_V2 bleed 30.52/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop_V2"
+      },
+      "expect": 450,
+      "label": "RidingCrop_V2 durability 450"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.blunt",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "min": 150.57,
+      "max": 150.61,
+      "label": "RidingCrop_V5 blunt 150.59"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.bleedDps",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "min": 38.13,
+      "max": 38.17,
+      "label": "RidingCrop_V5 bleed 38.15/s"
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.durability",
+      "args": {
+        "prefab": "RidingCrop_V5"
+      },
+      "expect": 500,
+      "label": "RidingCrop_V5 durability 500"
+    }
+  ],
+  "asserts": [
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

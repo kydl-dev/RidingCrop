@@ -1,0 +1,41 @@
+{
+  "name": "craft-a-crop",
+  "description": "The first crop can be crafted through the game's own crafting code, at a workbench spawned by the test",
+  "timeout": 90,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "spawn",
+      "prefab": "piece_workbench",
+      "dz": 4,
+      "owner": "me",
+      "as": "piece_workbench"
+    },
+    {
+      "do": "give",
+      "materialsFor": "RidingCrop"
+    },
+    {
+      "do": "craft",
+      "prefab": "RidingCrop",
+      "count": 1,
+      "free": false,
+      "station": "piece_workbench"
+    }
+  ],
+  "asserts": [
+    {
+      "check": "hasItem",
+      "prefab": "RidingCrop"
+    },
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}

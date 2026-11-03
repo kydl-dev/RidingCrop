@@ -1,0 +1,65 @@
+{
+  "name": "give-and-equip",
+  "description": "A crop can be put in the inventory and equipped into the hand",
+  "timeout": 60,
+  "steps": [
+    {
+      "do": "hook",
+      "name": "ridingcrop.arena",
+      "contains": "arena at",
+      "label": "start on the arena spot"
+    },
+    {
+      "do": "give",
+      "prefab": "RidingCrop",
+      "count": 1,
+      "equip": true
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.owned",
+        "args": {
+          "prefab": "RidingCrop"
+        },
+        "expect": true
+      },
+      "timeout": 5
+    },
+    {
+      "do": "wait",
+      "until": {
+        "check": "hook",
+        "name": "ridingcrop.inHand",
+        "args": {
+          "prefab": "RidingCrop"
+        },
+        "expect": true
+      },
+      "timeout": 8
+    },
+    {
+      "do": "wait",
+      "seconds": 2
+    },
+    {
+      "do": "hook",
+      "name": "ridingcrop.skillLevel",
+      "args": {
+        "prefab": "RidingCrop"
+      },
+      "min": 0
+    }
+  ],
+  "asserts": [
+    {
+      "check": "hasItem",
+      "prefab": "RidingCrop"
+    },
+    {
+      "check": "noErrors",
+      "source": "RidingCrop"
+    }
+  ]
+}
