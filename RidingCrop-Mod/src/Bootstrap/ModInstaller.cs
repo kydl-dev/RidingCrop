@@ -1,8 +1,7 @@
 using BepInEx.Configuration;
 using RidingCrop.Presentation.Hub.Registration;
-using Kydl.Common;
-using Kydl.Core.Features;
-using Kydl.Core.Results;
+using KydlCore.Common;
+using KydlCore.Core;
 
 namespace RidingCrop.Bootstrap
 {

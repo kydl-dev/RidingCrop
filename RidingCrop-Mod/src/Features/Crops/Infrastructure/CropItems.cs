@@ -5,7 +5,7 @@ using Jotunn;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
-using Kydl.Common;
+using KydlCore.Common;
 using UnityEngine;
 
 namespace RidingCrop

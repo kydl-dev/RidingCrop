@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using Kydl.Common;
+using KydlCore.Common;
 using RidingCrop.Bootstrap;
 
 namespace RidingCrop.Testing
@@ -42,7 +42,7 @@ namespace RidingCrop.Testing
 
         /// <summary>Is this tab (settings) registered in the KY hub right now?</summary>
         [TestHook("ridingcrop.tabRegistered")]
-        private static bool TabRegistered(string id) { return KydlCore.KyHub.HasTab(Plugin.ModGuid, id); }
+        private static bool TabRegistered(string id) { return KydlCore.Features.Hub.Contracts.KyHub.HasTab(Plugin.ModGuid, id); }
 
         [TestHook("ridingcrop.selftest")]
         private static string SelfTest() { return TestLabSupport.RunInGameTests(typeof(InGameTests)); }

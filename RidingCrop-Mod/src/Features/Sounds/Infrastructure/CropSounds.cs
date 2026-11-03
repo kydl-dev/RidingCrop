@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Jotunn.Managers;
-using Kydl.Common;
+using KydlCore.Common;
 using UnityEngine;
 
 namespace RidingCrop
