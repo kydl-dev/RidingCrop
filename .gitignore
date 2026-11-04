@@ -90,3 +90,7 @@ Desktop.ini
 CLAUDE.md
 .claude/
 *.dll
+
+# SonarQube scanner work files (H30/H31)
+.sonarqube/
+**/tests/_quality/sonar-coverage/
