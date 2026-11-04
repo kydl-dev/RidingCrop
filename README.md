@@ -8,7 +8,7 @@ Author: **kydldev**
 
 ## Requirements
 
-- BepInEx, [Jotunn](https://valheim.thunderstore.io/package/ValheimModding/Jotunn/) and [KydlCore](https://valheim.thunderstore.io/package/KydlDev/KydlCore/) 0.1.0.
+- BepInEx, [Jotunn](https://valheim.thunderstore.io/package/ValheimModding/Jotunn/) and [KydlCore](https://valheim.thunderstore.io/package/KydlDev/KydlCore/) 1.0.0.
 - Every player on a server needs the mod installed, at the **same version** (see Multiplayer).
 
 ## Features

@@ -14,7 +14,7 @@ namespace RidingCrop;
 /// </summary>
 [BepInPlugin(ModGuid, ModName, ModVersion)]
 [BepInDependency(Jotunn.Main.ModGuid)]
-[BepInDependency(KydlCore.Bootstrap.Plugin.ModGuid, "0.1.0")]     // the KY hub (manifest: KydlDev-KydlCore-0.1.0, same version)
+[BepInDependency(KydlCore.Bootstrap.Plugin.ModGuid, "1.0.0")]     // the KY hub (manifest: KydlDev-KydlCore-1.0.0, same version)
 // New items = everyone on a server needs the mod with the exact same version, otherwise they can't see or hold them.
 [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Patch)]
 public class Plugin : BaseUnityPlugin
