@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\src\Core\Functions.cs" Link="Mod\Functions.cs" />
-    <Compile Include="..\..\src\Features\Crops\Domain\CropTable.cs" Link="Mod\CropTable.cs" />
-    <Compile Include="..\..\src\Features\Crops\Domain\CropBalance.cs" Link="Mod\CropBalance.cs" />
-    <Compile Include="..\..\src\Features\Sounds\Domain\SoundMath.cs" Link="Mod\SoundMath.cs" />
+    <Compile Include="..\..\src\Core\Functions.cs" Link="Mod\Functions.cs" Condition="'$(KydlQuality)' != 'true'" />
+    <Compile Include="..\..\src\Features\Crops\Domain\CropTable.cs" Link="Mod\CropTable.cs" Condition="'$(KydlQuality)' != 'true'" />
+    <Compile Include="..\..\src\Features\Crops\Domain\CropBalance.cs" Link="Mod\CropBalance.cs" Condition="'$(KydlQuality)' != 'true'" />
+    <Compile Include="..\..\src\Features\Sounds\Domain\SoundMath.cs" Link="Mod\SoundMath.cs" Condition="'$(KydlQuality)' != 'true'" />
   </ItemGroup>
 </Project>

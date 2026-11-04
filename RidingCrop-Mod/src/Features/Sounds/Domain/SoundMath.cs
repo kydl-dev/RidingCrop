@@ -20,6 +20,7 @@ internal static class SoundMath
         for (int i = 0; i < data.Length; i++)
         {
             float a = Math.Abs(data[i]);
+            // Stryker disable once Equality : equal samples give the same peak either way
             if (a > peak)
             {
                 peak = a;
@@ -76,6 +77,7 @@ internal static class SoundMath
         var output = new float[outFrames * channels];
         for (int f = 0; f < outFrames; f++)
         {
+            // Stryker disable once Equality : at f == fadeFrames the fade ratio is exactly 1, the same as the else branch
             float fade = f < fadeFrames ? (float)f / fadeFrames : 1f;
             for (int c = 0; c < channels; c++)
             {
@@ -92,6 +94,7 @@ internal static class SoundMath
     /// <returns>The limited level.</returns>
     internal static float SoftLimit(float amplified)
     {
+        // Stryker disable once Equality : at the knee the curve starts with tanh(0) = 0, so both branches return the knee
         if (amplified <= LimiterKnee)
         {
             return amplified;
@@ -115,6 +118,7 @@ internal static class SoundMath
         for (int i = 0; i < data.Length; i++)
         {
             float a = Math.Abs(data[i]);
+            // Stryker disable once Equality : equal samples give the same peak either way
             if (a > peakBefore)
             {
                 peakBefore = a;
@@ -127,11 +131,13 @@ internal static class SoundMath
                 amplified = SoftLimit(amplified);
             }
 
+            // Stryker disable once Equality : equal levels give the same peak either way
             if (amplified > peakAfter)
             {
                 peakAfter = amplified;
             }
 
+            // Stryker disable once Equality : for a zero sample both branches give zero
             data[i] = data[i] < 0f ? -amplified : amplified;
         }
     }
