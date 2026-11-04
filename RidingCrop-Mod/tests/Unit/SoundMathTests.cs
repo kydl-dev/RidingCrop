@@ -9,8 +9,11 @@ public class SoundMathTests
     [Test]
     public void Peak_IsTheLargestAbsoluteSample()
     {
-        Assert.That(SoundMath.Peak(new[] { 0.1f, -0.6f, 0.4f }), Is.EqualTo(0.6f).Within(0.0001));
-        Assert.That(SoundMath.Peak(new float[0]), Is.EqualTo(0f));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(SoundMath.Peak(new[] { 0.1f, -0.6f, 0.4f }), Is.EqualTo(0.6f).Within(0.0001));
+            Assert.That(SoundMath.Peak(new float[0]), Is.EqualTo(0f));
+        }
     }
 
     [Test]
@@ -30,15 +33,21 @@ public class SoundMathTests
     [Test]
     public void StartFrame_KeepsFiveMillisecondsBeforeTheImpact_NeverNegative()
     {
-        Assert.That(SoundMath.StartFrame(1000, 48000), Is.EqualTo(760));
-        Assert.That(SoundMath.StartFrame(100, 48000), Is.EqualTo(0));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(SoundMath.StartFrame(1000, 48000), Is.EqualTo(760));
+            Assert.That(SoundMath.StartFrame(100, 48000), Is.EqualTo(0));
+        }
     }
 
     [Test]
     public void NormalizeGain_NeverQuietsAClip()
     {
-        Assert.That(SoundMath.NormalizeGain(0.49f), Is.EqualTo(2f).Within(0.001));
-        Assert.That(SoundMath.NormalizeGain(1f), Is.EqualTo(1f));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(SoundMath.NormalizeGain(0.49f), Is.EqualTo(2f).Within(0.001));
+            Assert.That(SoundMath.NormalizeGain(1f), Is.EqualTo(1f));
+        }
     }
 
     [Test]
@@ -51,9 +60,12 @@ public class SoundMathTests
         }
 
         float[] output = SoundMath.TrimAndNormalize(data, 1, 48000, 1000, 1f);
-        Assert.That(output.Length, Is.EqualTo(47000));
-        Assert.That(output[0], Is.EqualTo(0f), "starts silent so the cut cannot click");
-        Assert.That(output[200], Is.EqualTo(0.5f).Within(0.0001), "full level after the 3 ms fade");
+        Assert.That(output, Has.Length.EqualTo(47000));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(output[0], Is.EqualTo(0f), "starts silent so the cut cannot click");
+            Assert.That(output[200], Is.EqualTo(0.5f).Within(0.0001), "full level after the 3 ms fade");
+        }
     }
 
     [Test]
@@ -80,11 +92,14 @@ public class SoundMathTests
         float after;
         int limited;
         SoundMath.ApplyGain(data, 1.5f, out before, out after, out limited);
-        Assert.That(data[0], Is.EqualTo(0.3f).Within(0.0001));
-        Assert.That(data[1], Is.EqualTo(-0.6f).Within(0.0001));
-        Assert.That(before, Is.EqualTo(0.4f).Within(0.0001));
-        Assert.That(after, Is.EqualTo(0.6f).Within(0.0001));
-        Assert.That(limited, Is.EqualTo(0));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(data[0], Is.EqualTo(0.3f).Within(0.0001));
+            Assert.That(data[1], Is.EqualTo(-0.6f).Within(0.0001));
+            Assert.That(before, Is.EqualTo(0.4f).Within(0.0001));
+            Assert.That(after, Is.EqualTo(0.6f).Within(0.0001));
+            Assert.That(limited, Is.EqualTo(0));
+        }
     }
 
     [Test]
@@ -95,8 +110,11 @@ public class SoundMathTests
         float after;
         int limited;
         SoundMath.ApplyGain(data, 1.5f, out before, out after, out limited);
-        Assert.That(limited, Is.EqualTo(2));
-        Assert.That(data[0], Is.LessThanOrEqualTo(1f));
-        Assert.That(data[1], Is.GreaterThanOrEqualTo(-1f));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(limited, Is.EqualTo(2));
+            Assert.That(data[0], Is.LessThanOrEqualTo(1f));
+            Assert.That(data[1], Is.GreaterThanOrEqualTo(-1f));
+        }
     }
 }

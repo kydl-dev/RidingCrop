@@ -38,16 +38,22 @@ public class CropBalanceTests
     [Test]
     public void UpgradeSteps_AreFlat()
     {
-        Assert.That(CropBalance.BluntPerLevel, Is.EqualTo(6f).Within(0.001));
-        Assert.That(CropBalance.DurabilityPerLevel, Is.EqualTo(40f).Within(0.001));
-        Assert.That(CropBalance.MaxQuality, Is.EqualTo(4));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(CropBalance.BluntPerLevel, Is.EqualTo(6f).Within(0.001));
+            Assert.That(CropBalance.DurabilityPerLevel, Is.EqualTo(40f).Within(0.001));
+            Assert.That(CropBalance.MaxQuality, Is.EqualTo(4));
+        }
     }
 
     [Test]
     public void BluntAtQuality_AddsTheUpgradeStep()
     {
-        Assert.That(CropBalance.BluntAtQuality(0, 1), Is.EqualTo(20f).Within(0.001));
-        Assert.That(CropBalance.BluntAtQuality(0, 4), Is.EqualTo(38f).Within(0.001));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(CropBalance.BluntAtQuality(0, 1), Is.EqualTo(20f).Within(0.001));
+            Assert.That(CropBalance.BluntAtQuality(0, 4), Is.EqualTo(38f).Within(0.001));
+        }
     }
 
     [Test]
@@ -56,8 +62,11 @@ public class CropBalanceTests
         Assert.That(CropBalance.Tiers, Is.EqualTo(CropTable.All.Length));
         for (int i = 1; i < CropBalance.Tiers; i++)
         {
-            Assert.That(CropBalance.Blunt(i), Is.GreaterThan(CropBalance.Blunt(i - 1)));
-            Assert.That(CropBalance.Stagger(i), Is.GreaterThanOrEqualTo(CropBalance.Stagger(i - 1)));
+            using (Assert.EnterMultipleScope())
+            {
+                Assert.That(CropBalance.Blunt(i), Is.GreaterThan(CropBalance.Blunt(i - 1)));
+                Assert.That(CropBalance.Stagger(i), Is.GreaterThanOrEqualTo(CropBalance.Stagger(i - 1)));
+            }
         }
     }
 

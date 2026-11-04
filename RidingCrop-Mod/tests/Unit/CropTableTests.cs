@@ -10,10 +10,13 @@ public class CropTableTests
     [Test]
     public void SevenCrops_WithUniqueIdsAndTextures()
     {
-        Assert.That(CropTable.All.Length, Is.EqualTo(7));
-        Assert.That(CropTable.All.Select(c => c.PrefabName).Distinct().Count(), Is.EqualTo(7));
-        Assert.That(CropTable.All.Select(c => c.AlbedoName).Distinct().Count(), Is.EqualTo(7));
-        Assert.That(CropTable.All[0].PrefabName, Is.EqualTo("RidingCrop"));
+        Assert.That(CropTable.All, Has.Length.EqualTo(7));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(CropTable.All.Select(c => c.PrefabName).Distinct().Count(), Is.EqualTo(7));
+            Assert.That(CropTable.All.Select(c => c.AlbedoName).Distinct().Count(), Is.EqualTo(7));
+            Assert.That(CropTable.All[0].PrefabName, Is.EqualTo("RidingCrop"));
+        }
     }
 
     [Test]
@@ -21,7 +24,7 @@ public class CropTableTests
     {
         foreach (CropDef c in CropTable.All)
         {
-            Assert.That(c.Ingredients.Length, Is.EqualTo(3), c.PrefabName);
+            Assert.That(c.Ingredients, Has.Length.EqualTo(3), c.PrefabName);
             foreach (CropIngredient i in c.Ingredients)
             {
                 Assert.That(i.UpgradeAmount, Is.GreaterThanOrEqualTo(1), c.PrefabName + " " + i.Item);
@@ -41,9 +44,12 @@ public class CropTableTests
     [Test]
     public void Stations_ClimbWithTheTier()
     {
-        Assert.That(CropTable.All[0].Station, Is.EqualTo(CropStation.Workbench));
-        Assert.That(CropTable.All[2].Station, Is.EqualTo(CropStation.Forge));
-        Assert.That(CropTable.All[5].Station, Is.EqualTo(CropStation.BlackForge));
-        Assert.That(CropTable.VanillaBasePrefab, Is.EqualTo("Club"));
+        using (Assert.EnterMultipleScope())
+        {
+            Assert.That(CropTable.All[0].Station, Is.EqualTo(CropStation.Workbench));
+            Assert.That(CropTable.All[2].Station, Is.EqualTo(CropStation.Forge));
+            Assert.That(CropTable.All[5].Station, Is.EqualTo(CropStation.BlackForge));
+            Assert.That(CropTable.VanillaBasePrefab, Is.EqualTo("Club"));
+        }
     }
 }

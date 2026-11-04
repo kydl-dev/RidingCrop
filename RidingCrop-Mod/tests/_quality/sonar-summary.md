@@ -1,6 +1,6 @@
-﻿# SonarQube RidingCrop - OK
+﻿# SonarQube RidingCrop - OK (Medium/High impact issues: 0; Sonar server gate: OK)
 
-Run 2026-11-04 00:51:48, http://localhost:9000/dashboard?id=RidingCrop
+Run 2026-11-04 12:26:42, http://localhost:9000/dashboard?id=RidingCrop
 
 | Measure | Value |
 |---|---|
